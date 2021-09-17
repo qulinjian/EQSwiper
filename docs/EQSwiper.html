@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="layout.css">
+	<link rel="stylesheet" href="plugin/highlight/default.min.css">
+	<title>EQSwiper</title>
+</head>
+<body>
+	<header>
+		<h1>EQSwiper</h1>
+		<h4>一款不需要依赖任何库的轮播图插件</h4>
+	</header>
+	<section class="warp">
+		<p style="margin-top: 20px;">如果您的网页需要这样的轮播效果，您可以考虑使用EQSwiper。</p>
+		<div class="demo">
+	      	<div id="mySwiper1">
+			    <div style="background: #ed5a65;"></div>
+			    <div style="background: #1177b0;"></div>
+			    <div style="background: #40a070;"></div>
+			    <div style="background: #fbc82f;"></div>
+		    </div>
+		</div>
+		<p>EQSwiper用法很简单，上个例子中，您只需把结构写成这样：</p>
+		<pre>
+			<code>&lt;div id="mySwiper1">
+	&lt;div style="background: #ed5a65;height: 200px;">&lt;/div&gt;
+	&lt;div style="background: #1177b0;height: 200px;">&lt;/div&gt;
+	&lt;div style="background: #40a070;height: 200px;">&lt;/div&gt;
+	&lt;div style="background: #fbc82f;height: 200px;">&lt;/div&gt;
+&lt;/div&gt;</code>
+		</pre>
+		<p>引入EQSwiper.js之后，想让它动起来，只要这样做：</p>
+		<pre>
+			<code>new EQSwiper({
+	el: "#mySwiper1"
+})</code>
+		</pre>
+		<p>是的，只要定义好选择器就可以做出一个带有动画效果，能自动播放的轮播图啦！</p>
+		<p>EQSwiper的体积很小，只有不到7K，代码只有200行。但可以应用于绝大多数的轮播图效果。</p>
+		<div class="warning">
+			请注意，如果您的轮播图需要兼容IE或低版本的谷歌，低版本的火狐浏览器，EQSwiper不是最好的选择，您可以选择那些功能更齐全的插件，他们会把兼容性处理的很好。如果您打算将您的轮播图用于移动端，请慎用。1.0版本的EQSwiper兼容并不完美。目前主要的应用场景是PC端高版本浏览器。我会在下一个版本中对移动端进行改进。
+		</div>
+		<p>如果对轮播图有其他需求，您可以在配置项中修改对应的配置参数。配置参数共分成4类，分别用于控制整个轮播图、轮播图动画效果、两侧箭头以及下侧圆点。参数之间互相没影响，可以放心使用。</p>
+		<p>举个例子，如果想把轮播图做成一个初始展示第2张幻灯片，两秒中自动切换到下一张，并且把左右箭头设置成不同颜色，同时把下面的小圆点变成正方形按钮，像这样：</p>
+		<div id="mySwiper2">
+		    <div class="swiper-one" style="background: #ed5a65;">我是第一张幻灯片</div>
+		    <div class="swiper-one" style="background: #1177b0;">我是第二张幻灯片</div>
+		    <div class="swiper-one" style="background: #40a070;">我是第三张幻灯片</div>
+		    <div class="swiper-one" style="background: #fbc82f;">我是第四张幻灯片</div>
+	    </div>
+		<p>您可以这样设置：</p>
+		<pre>
+			<code>new EQSwiper({
+	el: "#mySwiper2",
+	global: {
+		initialSlide: 1
+	},
+	play: {
+		delay: 2
+	},
+	arrow: {
+		cssLeft: "border-color: #322f3b",
+		cssRight: "border-color: #9fa39a"
+	},
+	round: {
+		cssNormal: "border-radius: 0",
+		cssActive: "border-radius: 0"
+	}
+})</code>
+		</pre>
+		<p>上面例子中涵盖了EQSwiper的全部配置大项。除了el为必选配置项之外，其他配置项均是可选的。</p>
+		<p>以下是全部配置参数说明：</p>
+		<p>一、global</p>
+		<table>
+			<tr>
+				<td>参数名</td>
+				<td>类型</td>
+				<td>默认值</td>
+				<td>描述</td>
+			</tr>
+			<tr>
+				<td>width</td>
+				<td>数字或百分比</td>
+				<td>100%</td>
+				<td>swiper的整体宽度</td>
+			</tr>
+			<tr>
+				<td>height</td>
+				<td>数字或auto</td>
+				<td>auto</td>
+				<td>swiper的整体高度</td>
+			</tr>
+			<tr>
+				<td>initialSlide</td>
+				<td>数字</td>
+				<td>0</td>
+				<td>默认显示第几张幻灯片</td>
+			</tr>
+			<tr>
+				<td>callback</td>
+				<td>函数</td>
+				<td> - </td>
+				<td>每次切换完成之后执行(函数的第一个参数为当前幻灯片的索引)</td>
+			</tr>
+		</table>
+		<p>二、play</p>
+		<table>
+			<tr>
+				<td>参数名</td>
+				<td>类型</td>
+				<td>默认值</td>
+				<td>描述</td>
+			</tr>
+			<tr>
+				<td>animate</td>
+				<td>true / false</td>
+				<td>true</td>
+				<td>是否开启动画效果</td>
+			</tr>
+			<tr>
+				<td>autoPlay</td>
+				<td>true / false</td>
+				<td>true</td>
+				<td>是否自动播放</td>
+			</tr>
+			<tr>
+				<td>speed</td>
+				<td>数字</td>
+				<td>1</td>
+				<td>运动持续时长（单位：秒）</td>
+			</tr>
+            <tr>
+				<td>delay</td>
+				<td>数字</td>
+				<td>8</td>
+				<td>每张幻灯片停留时长（单位：秒）</td>
+			</tr>
+		</table>
+		<p>三、arrow</p>
+		<table>
+			<tr>
+				<td>参数名</td>
+				<td>类型</td>
+				<td>默认值</td>
+				<td>描述</td>
+			</tr>
+			<tr>
+				<td>show</td>
+				<td>true / false</td>
+				<td>true</td>
+				<td>是否开启两侧箭头</td>
+			</tr>
+			<tr>
+				<td>color</td>
+				<td>颜色值</td>
+				<td>rgba(0,0,0,.4)</td>
+				<td>箭头的颜色</td>
+			</tr>
+			<tr>
+				<td>size</td>
+				<td>数字</td>
+				<td>20</td>
+				<td>箭头的大小</td>
+			</tr>
+			<tr>
+				<td>offset</td>
+				<td>数字</td>
+				<td>30</td>
+				<td>箭头距离左右两侧的位置</td>
+			</tr>
+			<tr>
+				<td>cssLeft</td>
+				<td>字符串</td>
+				<td>空字符串</td>
+				<td>左侧箭头的样式</td>
+			</tr>
+			<tr>
+				<td>cssRight</td>
+				<td>字符串</td>
+				<td>空字符串</td>
+				<td>右侧箭头的样式</td>
+			</tr>
+		</table>
+		<p>四、round</p>
+		<table>
+			<tr>
+				<td>参数名</td>
+				<td>类型</td>
+				<td>默认值</td>
+				<td>描述</td>
+			</tr>
+			<tr>
+				<td>show</td>
+				<td>true / false</td>
+				<td>true</td>
+				<td>是否开启下面小圆点</td>
+			</tr>
+			<tr>
+				<td>size</td>
+				<td>数字</td>
+				<td>14</td>
+				<td>圆点大小</td>
+			</tr>
+			<tr>
+				<td>offset</td>
+				<td>数字</td>
+				<td>18</td>
+				<td>圆点距离下面的偏移量</td>
+			</tr>
+			<tr>
+				<td>color</td>
+				<td>颜色值</td>
+				<td>rgba(0,0,0,.4)</td>
+				<td>默认圆点的颜色</td>
+			</tr>
+			<tr>
+				<td>activeColor</td>
+				<td>颜色值</td>
+				<td>rgb(255,255,255)</td>
+				<td>当前幻灯片对应圆点的颜色</td>
+			</tr>
+			<tr>
+				<td>cssNormal</td>
+				<td>字符串</td>
+				<td>空字符串</td>
+				<td>默认圆点的样式</td>
+			</tr>
+			<tr>
+				<td>cssActive</td>
+				<td>字符串</td>
+				<td>空字符串</td>
+				<td>当前幻灯片对应圆点的样式</td>
+			</tr>
+		</table>
+		<p>以上是EQSwiper的全部用法。写这款插件主要针对小型项目的开发者。插件的优点在于体积小，使用起来方便。如果您对于这款插件有任何建议，欢迎联系我。我的QQ：250463606。感谢！</p>
+	</section>
+	<script src="../EQSwiper.js"></script>
+	<script src="plugin/highlight/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script>
+		new EQSwiper({
+			el: "#mySwiper1"
+		});
+		new EQSwiper({
+			el: "#mySwiper2",
+			global: {
+				initialSlide: 1,
+				callback: function(i) {
+					console.log(i);
+				}
+			},
+			play: {
+				delay: 2
+			},
+			arrow: {
+				cssLeft: "border-color: #322f3b",
+				cssRight: "border-color: #9fa39a"
+			},
+			round: {
+				cssNormal: "border-radius: 0",
+				cssActive: "border-radius: 0"
+			}
+		});
+	</script>
+</body>
+</html>

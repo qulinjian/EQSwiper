@@ -1,0 +1,13 @@
+body {margin: 0;font-family: Open Sans,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Microsoft Yahei,Arial,sans-serif; font-size: 14px; line-height: 30px; color: #172b4d;}
+header {color: #FFF;padding: 2em;background: #007bff;text-align: center;}
+h1 {margin: 0;}
+h4 {font-weight: normal;margin-bottom: 0;}
+.warp {width: 65%;margin-left: auto;margin-right: auto;}
+.demo {margin: 20px auto;}
+code {margin: 0;}
+pre {margin-top: -2em;margin-bottom: -4em;}
+.warning  {color: #856404; padding: 0.75rem 1.25rem; background: #fff3cd; border: 1px solid #ffeeba; border-radius: 4px;font-size: 12px; }
+#mySwiper1 div {height: 200px;}
+.swiper-one {text-align:center;height: 200px;line-height: 200px;font-size: 40px;color: #FFF;}
+table {border-collapse: collapse;width: 100%;}
+td {border: 1px solid #172b4d;text-align: center;font-size: 12px;}
