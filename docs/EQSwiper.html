@@ -83,13 +83,13 @@
 			</tr>
 			<tr>
 				<td>width</td>
-				<td>数字或百分比</td>
-				<td>100%</td>
+				<td>数字、百分比、auto</td>
+				<td>auto</td>
 				<td>swiper的整体宽度</td>
 			</tr>
 			<tr>
 				<td>height</td>
-				<td>数字或auto</td>
+				<td>数字、百分比、auto</td>
 				<td>auto</td>
 				<td>swiper的整体高度</td>
 			</tr>
@@ -235,7 +235,7 @@
 				<td>当前幻灯片对应圆点的样式</td>
 			</tr>
 		</table>
-		<p>以上是EQSwiper的全部用法。写这款插件主要针对小型项目的开发者。插件的优点在于体积小，使用起来方便。如果您对于这款插件有任何建议，欢迎联系我。我的QQ：250463606。感谢！</p>
+		<p>以上是EQSwiper的全部用法。这款插件主要针对小型项目的开发者。插件的优点在于体积小，使用起来方便。如果您对于这款插件有任何建议，欢迎联系我。我的QQ：250463606。</p>
 	</section>
 	<script src="../EQSwiper.js"></script>
 	<script src="plugin/highlight/highlight.min.js"></script>
@@ -247,10 +247,7 @@
 		new EQSwiper({
 			el: "#mySwiper2",
 			global: {
-				initialSlide: 1,
-				callback: function(i) {
-					console.log(i);
-				}
+				initialSlide: 1
 			},
 			play: {
 				delay: 2

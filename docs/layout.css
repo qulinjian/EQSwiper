@@ -4,12 +4,21 @@ h1 {margin: 0;position: relative;}
 sub {font-size: 14px;position: relative;bottom: 5px;margin-left: 2px;}
 h4 {font-weight: normal;margin-bottom: 0;}
 .warp {width: 65%;margin-left: auto;margin-right: auto;}
+@media screen and (max-width:  980px) {
+	.warp {width: 90% }
+}
 .demo {margin: 20px auto;}
 code {margin: 0;}
 pre {margin-top: -2em;margin-bottom: -4em;}
 .down {color: #172b4d;}
-.warning  {color: #856404; padding: 0.75rem 1.25rem; background: #fff3cd; border: 1px solid #ffeeba; border-radius: 4px;font-size: 12px; }
+.warning  {color: #856404; padding: 0.75rem 1.25rem; background: #fff3cd; border: 1px solid #ffeeba; border-radius: 4px;font-size: 12px;}
 #mySwiper1 div {height: 200px;}
 .swiper-one {text-align:center;height: 200px;line-height: 200px;font-size: 40px;color: #FFF;}
+@media screen and (max-width: 980px) {
+	.swiper-one {font-size: 16px;}
+}
 table {border-collapse: collapse;width: 100%;}
 td {border: 1px solid #172b4d;text-align: center;font-size: 12px;}
+@media screen and (max-width:  980px) { 
+	td {line-height: 1.6;}
+}
