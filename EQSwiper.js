@@ -60,9 +60,7 @@ class EQSwiper {
 	}
 	// 生成元素结构
 	createEle() {
-		const _width = this.global.width + (isNaN(this.global.width) ? "" : "px");
-		const _height = this.global.height + (isNaN(this.global.height) ? "" : "px");
-		this.el.style.cssText = `${this.el.style.cssText};width: ${_width};height: ${_height};min-height: 50px;overflow: hidden;position: relative;`
+		this.el.style.cssText = `${this.el.style.cssText};width: ${this.global.width + (isNaN(this.global.width) ? "" : "px")};height: ${this.global.height + (isNaN(this.global.height) ? "" : "px")};min-height: 50px;overflow: hidden;position: relative;`;
 		this.el.innerHTML = "";  // 清空元素
 		// 生成内部容器
 		this.innerEle = this.ct("ul",{
@@ -133,14 +131,15 @@ class EQSwiper {
 			ele.style.transition = `${this.play.speed}s transform`;
 		}
 		ele.style.transform = `translateX(-${this.oW * this.global.initialSlide}px)`;
+		if(!this.play.animate) this.global.callback(this.global.initialSlide,this.originEle[this.global.initialSlide]);
 		window.addEventListener("resize",() => {
 			ele.style.transition = ``;
 			ele.style.transform = `translateX(-${this.oW * this.global.initialSlide}px)`;
 		});
 		ele.addEventListener("webkitTransitionEnd", () => {
 			this.isAbled = true;
-			this.global.callback(this.global.initialSlide);
-		})
+			this.global.callback(this.global.initialSlide,this.originEle[this.global.initialSlide]);
+		});
 		this.round.show && this.setRoundActive();
 	}
 	// 自动播放
